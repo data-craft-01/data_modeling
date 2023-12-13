@@ -22,7 +22,7 @@ Key Concepts:
    - Wide/merged tables create redundant data and utilises significantly more memory and processing power than creating relationships between multiple narrow tables.
 
 5. **Types of Database Schema**
-   > Star schema and snowflake schema are two common data warehouse schema designs. Here are the key differences between them:
+   > - Star schema and snowflake schema are two common data warehouse schema designs. Here are the key differences between them:
 
 ### Star Schema:
 1. **Structure:**
