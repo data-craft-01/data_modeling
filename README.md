@@ -22,8 +22,106 @@ Key Concepts:
    - Wide/merged tables create redundant data and utilises significantly more memory and processing power than creating relationships between multiple narrow tables.
 
 5. **Types of Database Schema**
-   > a. Snowflake
-   > b. Star Schema
+   > Star schema and snowflake schema are two common data warehouse schema designs. Here are the key differences between them:
+
+### Star Schema:
+1. **Structure:**
+   - Centralized fact table surrounded by denormalized dimension tables.
+   - Fact table contains the primary keys of dimension tables along with the measures.
+   - Simple and easy to understand structure.
+
+2. **Normalization:**
+   - Fact table is denormalized, meaning redundant data is stored.
+   - Redundancy helps in faster query performance.
+
+3. **Join Complexity:**
+   - Fewer joins are required for queries, contributing to faster query performance.
+   - Well-suited for read-heavy workloads.
+
+4. **Maintenance:**
+   - Easier to maintain due to denormalization.
+   - Changes in dimension tables do not affect the fact table.
+
+5. **Query Performance:**
+   - Generally offers better query performance for analytical queries.
+   - Suitable for data warehouses with a star schema design.
+
+### Snowflake Schema:
+1. **Structure:**
+   - Fact table is linked to normalized dimension tables through foreign key relationships.
+   - Dimension tables may be further normalized into sub-dimensions.
+
+2. **Normalization:**
+   - Dimension tables are normalized, reducing redundancy.
+   - Conforms to the principles of database normalization.
+
+3. **Join Complexity:**
+   - More joins are required for queries compared to a star schema.
+   - May lead to slightly slower query performance.
+
+4. **Maintenance:**
+   - Requires more effort to maintain due to normalization.
+   - Changes in dimension tables may impact multiple related tables.
+
+5. **Query Performance:**
+   - May experience slightly slower query performance compared to a star schema.
+   - Suited for scenarios where normalization is critical, such as transactional systems.
+
+### Summary:
+- **Star Schema:**
+  - Denormalized structure.
+  - Faster query performance.
+  - Easier maintenance.
+  - Well-suited for analytical queries and data warehousing.
+
+- **Snowflake Schema:**
+  - Normalized structure.
+  - More complex queries.
+  - Requires more maintenance effort.
+  - Suited for scenarios where data normalization is a priority, such as transactional databases.
+
+Example:
+
+### Fact Table: `Sales_Fact`
+- The `Sales_Fact` table contains quantitative information about sales transactions. It includes measures such as:
+  - `SalesAmount`: The amount of money generated from the sale.
+  - `QuantitySold`: The number of units sold.
+  - `DiscountAmount`: Any discounts applied to the sale.
+  - `Profit`: Profit earned from the sale.
+
+### Dimension Tables:
+1. **`Product_Dim` (Product Dimension):**
+   - `ProductID`: Primary key for the product dimension.
+   - `ProductName`: Name of the product.
+   - `Category`: Product category (e.g., electronics, clothing).
+   - `Brand`: Brand of the product.
+
+2. **`Customer_Dim` (Customer Dimension):**
+   - `CustomerID`: Primary key for the customer dimension.
+   - `CustomerName`: Name of the customer.
+   - `City`: City where the customer is located.
+   - `JoinDate`: Date when the customer joined.
+
+3. **`Time_Dim` (Time Dimension):**
+   - `DateID`: Primary key for the time dimension.
+   - `Date`: Date of the sale.
+   - `Month`: Month of the sale.
+   - `Quarter`: Quarter of the year.
+
+4. **`Store_Dim` (Store Dimension):**
+   - `StoreID`: Primary key for the store dimension.
+   - `StoreName`: Name of the store.
+   - `Location`: Location of the store.
+   - `Manager`: Store manager's name.
+
+### Relationships:
+- The `Sales_Fact` table's primary key is a composite key composed of foreign keys from the dimension tables:
+  - `ProductID` (foreign key to `Product_Dim`).
+  - `CustomerID` (foreign key to `Customer_Dim`).
+  - `DateID` (foreign key to `Time_Dim`).
+  - `StoreID` (foreign key to `Store_Dim`).
+
+This example represents a simplified data warehouse schema commonly used in retail analytics. The `Sales_Fact` table captures the quantitative details of sales transactions, while the dimension tables provide descriptive information related to products, customers, time, and stores.
 
 6. **Relationship Cardinality**
 - Cardinality refers to the uniqueness of values in a column.
