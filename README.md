@@ -6,8 +6,8 @@ Key Concepts:
   - After normalisation, each table serves a distinct and specific purpose, i.e. the table showcases transactional data, product related information etc.
   - If normalisation isn't performed, the database will have duplicate information that could have been avoided with a dimension table this can lead to inefficeincies i storing data as the database scales in size.
   - Normalisations is recommended to achieve:
-> - Eliminate redundant data, thereby decreasing table sizes and improve processing speed and efficiency.
-> - Minimise errors and anomalies while modifying (inserting, updating or deleting records) data.
+  > - Eliminate redundant data, thereby decreasing table sizes and improve processing speed and efficiency.
+  > - Minimise errors and anomalies while modifying (inserting, updating or deleting records) data.
 
 2. **Fact vs Dimension Tables**
    - Database models generally have two types of tables:
@@ -20,6 +20,18 @@ Key Concepts:
 
 4. **Narrow vs Wide Table
    - Wide/merged tables create redundant data and utilises significantly more memory and processing power than creating relationships between multiple narrow tables.
+
+5. **Types of Database Schema**
+   > a. Snowflake
+   > b. Star Schema
+
+6. **Relationship Cardinality**
+- Cardinality refers to the uniqueness of values in a column.
+- All relationships in the data model should follow a "one-to-many" cardinality; one instance of each primary key, but potentially many instances of each foreign key.
+- Example: In the case given below, there is one instance of each ProductKey in the Products table (noted by 1), and there are many instances of each product key in the Sales_Data table (noted by the asterisk *). This is due to there being multiple sales associated with each product.
+
+![image](https://github.com/data-craft-01/data_modeling/assets/153006864/765f71b4-7f76-4b81-89df-2e985db6c54b)
+
 
 ## Best Practices
 1. Primary objective is to build a normalised data model right from the start.
