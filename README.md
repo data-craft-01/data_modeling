@@ -80,7 +80,8 @@ Key Concepts:
   - Requires more maintenance effort.
   - Suited for scenarios where data normalization is a priority, such as transactional databases.
 
-Example:
+Example:  
+The `Sales_Fact` table captures the quantitative details of sales transactions, while the dimension tables provide descriptive information related to products, customers, time, and stores.  
 
 ### Fact Table: `Sales_Fact`
 - The `Sales_Fact` table contains quantitative information about sales transactions. It includes measures such as:
@@ -120,8 +121,6 @@ Example:
   - `CustomerID` (foreign key to `Customer_Dim`).
   - `DateID` (foreign key to `Time_Dim`).
   - `StoreID` (foreign key to `Store_Dim`).
-
-This example represents a simplified data warehouse schema commonly used in retail analytics. The `Sales_Fact` table captures the quantitative details of sales transactions, while the dimension tables provide descriptive information related to products, customers, time, and stores.
 
 6. **Relationship Cardinality**
 - Cardinality refers to the uniqueness of values in a column.
