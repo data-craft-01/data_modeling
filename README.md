@@ -1,7 +1,15 @@
 # Data Modeling
 
 Key Concepts:
-1. D
+1. Database Normalisation
+  - Normalisation is defined as the process of organising the tables and fields/columns in a relational database to reduce redundancy and preserve data integrity.
+  - After normalisation, each table serves a distinct and specific purpose, i.e. the table showcases transactional data, product related information etc.
+  - If normalisation isn't performed, the database will have duplicate information that could have been avoided with a dimension table this can lead to inefficeincies i storing data as the database scales in size.
+  - Normalisations is recommended to achieve:
+> - Eliminate redundant data, thereby decreasing table sizes and improve processing speed and efficiency.
+> - Minimise errors and anomalies while modifying (inserting, updating or deleting records) data.
+
+
 2. s
 
 ## Best Practices
