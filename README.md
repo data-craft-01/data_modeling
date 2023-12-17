@@ -11,7 +11,6 @@ Key Concepts:
 
 2. **Fact vs Dimension Tables**
    - Dimensional Modeling (approach for data modeling in analytic solutions) assumes that all the tables should be defined either as fact or a dimension table.
-   - Database models generally have two types of tables:
      | Fact Tables | Dimension/Lookup Tables |
      |---|---|
      |contain data or values or events or observations,  typically at a granular level with an identifier column having an ID or key, which can be used to create table relationships.| provide descriptive information about each dimension in a table|
@@ -26,12 +25,22 @@ Key Concepts:
 
 6. **Types of Database Schema**
    > - Star schema and snowflake schema are two common data warehouse schema designs. Here are the key differences between them:
-
-### Star Schema:
-1. **Structure:**
+     | Star Schema | Dimension/Lookup Tables |
+     |---|---|
+     |**Structure:**
    - Centralized fact table surrounded by denormalized dimension tables.
    - Fact table contains the primary keys of dimension tables along with the measures.
-   - Simple and easy to understand structure.
+   - Simple and easy to understand structure.|**Structure:**
+   - Fact table is linked to normalized dimension tables through foreign key relationships.
+   - Dimension tables may be further normalized into sub-dimensions.|
+     |---|---|
+     |---|---|
+     |---|---|
+     |---|---|
+     |---|---|
+     |---|---|
+### Star Schema:
+1. 
 
 2. **Normalization:**
    - Fact table is denormalized, meaning redundant data is stored.
