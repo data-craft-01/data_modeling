@@ -27,12 +27,7 @@ Key Concepts:
    > - Star schema and snowflake schema are two common data warehouse schema designs. Here are the key differences between them:
      | Star Schema | Dimension/Lookup Tables |
      |---|---|
-     |**Structure:**
-   - Centralized fact table surrounded by denormalized dimension tables.
-   - Fact table contains the primary keys of dimension tables along with the measures.
-   - Simple and easy to understand structure.|**Structure:**
-   - Fact table is linked to normalized dimension tables through foreign key relationships.
-   - Dimension tables may be further normalized into sub-dimensions.|
+     |**Structure:** - Centralized fact table surrounded by denormalized dimension tables. - Fact table contains the primary keys of dimension tables along with the measures. - Simple and easy to understand structure.|**Structure:** - Fact table is linked to normalized dimension tables through foreign key relationships. - Dimension tables may be further normalized into sub-dimensions.|
      |---|---|
      |---|---|
      |---|---|
