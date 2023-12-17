@@ -13,7 +13,7 @@ Key Concepts:
    - Dimensional Modeling (approach for data modeling in analytic solutions) assumes that all the tables should be defined either as fact or a dimension table.
      | Fact Tables | Dimension/Lookup Tables |
      |---|---|
-     |contain data or values or events or observations,  typically at a granular level with an identifier column having an ID or key, which can be used to create table relationships.| provide descriptive information about each dimension in a table|
+     |contain data or values or events or observations,  typically at a granular level with an identifier column having an ID or key, which can be used to create table relationships.| Provide descriptive information about each dimension in a table|
      |Ex. sales transactions, exchange rates, temperatures|Ex. products, customers, locations, dates|
 
 4. **Primary vs Foreign Key**
@@ -70,12 +70,12 @@ Key Concepts:
 
 ### Summary:
 
-     | **Star Schema** | **Snowflake Schema** |
+     | Star Schema | Snowflake Schema |
      |---|---|
-     |Denormalized structure|Normalized structure|
-     |Faster query performance|More complex queries|
-     |Easier maintenance|Requires more maintenance effort|
-     |Well-suited for analytical queries and data warehousing|Suited for scenarios where data normalization is a priority, such as transactional databases|
+     | Denormalized structure | Normalized structure |
+     | Faster query performance | More complex queries |
+     | Easier maintenance | Requires more maintenance effort |
+     | Well-suited for analytical queries and data warehousing | Suited for scenarios where data normalization is a priority, such as transactional databases |
      
 - **Star Schema:**
   - Denormalized structure.
