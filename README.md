@@ -24,32 +24,26 @@ Key Concepts:
    - Wide/merged tables create redundant data and utilises significantly more memory and processing power than creating relationships between multiple narrow tables.
 
 6. **Types of Database Schema**
-   > - Star schema and snowflake schema are two common data warehouse schema designs. Here are the key differences between them:
-     | Star Schema | Dimension/Lookup Tables |
-     |---|---|
-     |**Structure:** - Centralized fact table surrounded by denormalized dimension tables. - Fact table contains the primary keys of dimension tables along with the measures. - Simple and easy to understand structure.|**Structure:** - Fact table is linked to normalized dimension tables through foreign key relationships. - Dimension tables may be further normalized into sub-dimensions.|
-     |---|---|
-     |---|---|
-     |---|---|
-     |---|---|
-     |---|---|
-     |---|---|
-### Star Schema:
-1. 
 
-2. **Normalization:**
+### Star Schema:
+1. **Structure:**
+  - Centralized fact table surrounded by denormalized dimension tables.
+  - Fact table contains the primary keys of dimension tables along with the measures.
+  - Simple and easy to understand structure.
+
+3. **Normalization:**
    - Fact table is denormalized, meaning redundant data is stored.
    - Redundancy helps in faster query performance.
 
-3. **Join Complexity:**
+4. **Join Complexity:**
    - Fewer joins are required for queries, contributing to faster query performance.
    - Well-suited for read-heavy workloads.
 
-4. **Maintenance:**
+5. **Maintenance:**
    - Easier to maintain due to denormalization.
    - Changes in dimension tables do not affect the fact table.
 
-5. **Query Performance:**
+6. **Query Performance:**
    - Generally offers better query performance for analytical queries.
    - Suitable for data warehouses with a star schema design.
 
@@ -75,6 +69,13 @@ Key Concepts:
    - Suited for scenarios where normalization is critical, such as transactional systems.
 
 ### Summary:
+     | **Star Schema** | **Snowflake Schema** |
+     |---|---|
+     |- Denormalized structure|- Normalized structure|
+     |- Faster query performance|- More complex queries|
+     |- Easier maintenance|- Requires more maintenance effort|
+     |- Well-suited for analytical queries and data warehousing|- Suited for scenarios where data normalization is a priority, such as transactional databases|
+     
 - **Star Schema:**
   - Denormalized structure.
   - Faster query performance.
