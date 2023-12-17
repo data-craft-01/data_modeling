@@ -18,6 +18,7 @@ Key Concepts:
      |---|---|
      |contain data or values or events or observations,  typically at a granular level with an identifier column having an ID or key, which can be used to create table relationships.| Provide descriptive information about each dimension in a table|
      |Ex. sales transactions, exchange rates, temperatures|Ex. products, customers, locations, dates|
+     |---| Make sure to have unique values in each dimension to establish proper 1-M relationships between dimension and fact table by removing duplicates|
 
 4. **Primary vs Foreign Key**
    - Primary key - uniquely identifies each record/row of a table and match foreign keys in related data tables.
