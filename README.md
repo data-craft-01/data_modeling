@@ -69,13 +69,6 @@ Key Concepts:
    - Suited for scenarios where normalization is critical, such as transactional systems.
 
 ### Summary:
-
-     | Star Schema | Snowflake Schema |
-     |---|---|
-     | Denormalized structure | Normalized structure |
-     | Faster query performance | More complex queries |
-     | Easier maintenance | Requires more maintenance effort |
-     | Well-suited for analytical queries and data warehousing | Suited for scenarios where data normalization is a priority, such as transactional databases |
      
 - **Star Schema:**
   - Denormalized structure.
