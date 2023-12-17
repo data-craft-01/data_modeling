@@ -1,7 +1,7 @@
 # Data Modeling
 
 Data Movemement:
-Transactions from the Source --> 1st Layer (ETL System - Transform from Source to Target , Normalization , Conform Dimensions | Design Goals - Throughput , Integrity & Consistency) --> Presentation Layer (Dimensional Schema - Star vs Snowflake vs Cube, Atomic & Summary Data, Organized by business processes, Consider confirmed dimensions | Design Goals - Ease of use, Query Performance) --> BI Application (Data mining & models, Analytic apps, Ad-hox queries, Standard reports)  
+**Transactions from the Source** >>> **ETL Layer** (ETL System - Transform from Source to Target , Normalization , Conform Dimensions | Design Goals - Throughput , Integrity & Consistency) >>> **Presentation Layer** (Dimensional Schema - Star vs Snowflake vs Cube, Atomic & Summary Data, Organized by business processes, Consider confirmed dimensions | Design Goals - Ease of use, Query Performance) >>> **BI Application** (Data mining & models, Analytic apps, Ad-hox queries, Standard reports)  
 
 Key Concepts:
 1. **Database Normalisation**
