@@ -10,18 +10,21 @@ Key Concepts:
   > - Minimise errors and anomalies while modifying (inserting, updating or deleting records) data.
 
 2. **Fact vs Dimension Tables**
+   - Dimensional Modeling (approach for data modeling in analytic solutions) assumes that all the tables should be defined either as fact or a dimension table.
    - Database models generally have two types of tables:
-   > - Fact Tables - contain data or values,  typically at a granular level with an identifier column having an ID or key, which can be used to create table relationships.
-   > - Dimension/Lookup Tables - provide descriptive information about each dimension in a table.
+     | Fact Tables | Dimension/Lookup Tables |
+     |---|---|
+     |contain data or values or events or observations,  typically at a granular level with an identifier column having an ID or key, which can be used to create table relationships.| provide descriptive information about each dimension in a table|
+     |Ex. sales transactions, exchange rates, temperatures|Ex. products, customers, locations, dates|
 
-3. **Primary vs Foreign Key**
+4. **Primary vs Foreign Key**
    - Primary key - uniquely identifies each record/row of a table and match foreign keys in related data tables.
    - Foreign keys - may contain multiple instances of each value and are used to match the primary keys in related lookup tables.
 
-4. **Narrow vs Wide Table
+5. **Narrow vs Wide Table**
    - Wide/merged tables create redundant data and utilises significantly more memory and processing power than creating relationships between multiple narrow tables.
 
-5. **Types of Database Schema**
+6. **Types of Database Schema**
    > - Star schema and snowflake schema are two common data warehouse schema designs. Here are the key differences between them:
 
 ### Star Schema:
