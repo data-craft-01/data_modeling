@@ -1,7 +1,21 @@
-# Data Modeling
+# Data Modeling  
 
-Data Movemement:
+Dimensional modeling is a preferred technique for presenting analytic data because it deliver's data that’s understandable to the business users with fast query performance.  
+Best Practice - Dimensional models should correspond to physical data capture events of business's process and shouldn't be just designed to deliver for analytics use-cases/report.  
+
+Designing a 'Dimensional Model' for a business is based in following key decisions:
+1. Identifying which business process to be considered
+2. Agree on the grain suitability
+3. Identify which attributes qualify for dimensions
+4. Identify which attributes qualify for facts
+
+Each business process is represented by a dimensional model that consists of a fact table containing the event’s numeric measurements surrounded by a halo of dimension tables that contain the textual context that was true at the moment the event occurred.
+Most often dimensional models are applied in relational database management systems and referred to as star schemas.
+
+
+Data Movemement:  
 **Transactions from the Source** >>> **ETL Layer** (ETL System - Transform from Source to Target , Normalization , Conform Dimensions | Design Goals - Throughput , Integrity & Consistency) >>> **Presentation Layer** (Dimensional Schema - Star vs Snowflake vs Cube, Atomic & Summary Data, Organized by business processes, Consider confirmed dimensions | Design Goals - Ease of use, Query Performance) >>> **BI Application** (Data mining & models, Analytic apps, Ad-hox queries, Standard reports)  
+
 
 Key Concepts:
 1. **Database Normalisation**
@@ -19,6 +33,35 @@ Key Concepts:
      |contain data or values or events or observations,  typically at a granular level with an identifier column having an ID or key, which can be used to create table relationships.| Provide descriptive information about each dimension in a table|
      |Ex. sales transactions, exchange rates, temperatures|Ex. products, customers, locations, dates|
      |---| Make sure to have unique values in each dimension to establish proper 1-M relationships between dimension and fact table by removing duplicates|
+
+| Fact Tables for Measurements | Dimensional Tables for Descriptive Text |
+|---|---|
+| The fact table in a dimensional model stores the  performance measurements resulting from an organization’s business process events. | Dim tables contain textual context associated with a business process measurement event. They describe the “who, what, where, when, how, and why” associated with the event. |
+| The term fact represents a business measure | The term fact represents description of a business event |
+| Fact tables tend to be deep in terms of the number of rows, but narrow in terms of the number of columns. | Dimension tables tend to have fewer rows than fact tables, but can be wide with many large text columns. |
+| Each row in a fact table corresponds to a measurement event. |  |
+| One of the core tenets of dimensional modeling is that
+all the measurement rows in a fact table must be at the same grain. |  |
+| The idea that a measurement event in the physical world has a one-to-one relationship to a single row in the corresponding fact table is a bedrock principle for dimensional modeling.  |  |
+| Facts are often described as continuously valued to help sort out what is a fact versus a dimension attribute. |  |
+| The designer should make every effort to put textual data into dimensions where they can be correlated more effectively with the other textual dimension attributes and consume much less space |  |
+| Unless the text is unique for every row in the fact table, it belongs in the dimension table. |  |
+| All fact table grains fall into one of three categories: transaction, periodic snapshot, and accumulating
+snapshot. |  |
+| All fact tables have 2/more FK that connect to the dimension tables’ PK. |  |
+| When all the keys in the fact table correctly match their respective PKs in the corresponding dimension tables, the tables satisfy referential integrity. | Each dimension is defined by a single PK, which serves as the basis for referential integrity with any given fact table to which it is joined.
+DWH is only as good as the dimension attributes; the analytic power of the DW/BI environment is directly proportional to the quality and depth of the dimension attributes. |
+| Fact table generally has its own PK composed of a subset of the FKs. This key is often called a composite key. Every table that has a composite key is a fact table. |  |
+| Fact tables express many-to-many relationships. All others are dimension tables. |  |
+| Fact attributes are referred for numeric values/aggregations in select clause. | Dimension attributes serve as the primary source of report filters, query constraints, groupings, and report labels.
+Robust dimension attributes deliver robust analytic slicing-and-dicing capabilities. |
+| When triaging operational source data, it is sometimes unclear whether a numeric data element is a fact or dimension attribute. You often make the decision by asking whether the column is a measurement that takes on lots of values and participates in calculations (making it a fact) or is a discretely valued description that is more or less constant and participates in constraints and row labels (making it a dimensional attribute). The designer’s dilemma of whether a numeric quantity is a fact or a dimension attribute is rarely a difficult decision. Continuously valued numeric observations are almost always facts; discrete numeric observations drawn from a small list are almost always dimension attributes. |  |
+|  | Instead of 3NF (third normal form), dimension tables typically are highly denormalized with flattened many-to-one relationships within a single dimension table.
+Because dimension tables typically are geometrically smaller than fact tables, improving storage efficiency by normalizing or snowflaking has virtually no impact on the overall database size. |
+| Do not normalize dimension data by storing only one attribute in one of the dimension table and
+creating a separate lookup dim table, and likewise for the other descriptions in separate lookup dim table - this normalization is called snowflaking |  |
+
+    
 
 4. **Primary vs Foreign Key**
    - Primary key - uniquely identifies each record/row of a table and match foreign keys in related data tables.
